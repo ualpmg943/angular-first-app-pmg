@@ -18,5 +18,5 @@ template: `
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('first-app-pmg');
+  // protected readonly title = signal('first-app-pmg');
 }
