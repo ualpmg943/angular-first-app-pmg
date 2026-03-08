@@ -1,5 +1,5 @@
-import {Component, input} from '@angular/core';
-import {HousingLocationInfo} from '../housinglocation';
+import {Component, Input} from '@angular/core';
+import {HousingLocationInfo} from '../housing-location';
 
 @Component({
   selector: 'app-housing-location',
@@ -7,4 +7,7 @@ import {HousingLocationInfo} from '../housinglocation';
   template: ` <p>housing-location works!</p> `,
   styleUrl: './housing-location.css',
 })
-export class HousingLocation {}
+export class HousingLocation {
+  //housingLocation = input.required<HousingLocationInfo>();
+  @Input() housingLocation!: HousingLocationInfo;
+}

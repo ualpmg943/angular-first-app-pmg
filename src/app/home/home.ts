@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HousingLocation } from '../housing-location/housing-location';
-import {HousingLocationInfo} from '../housinglocation';
+import {HousingLocationInfo} from '../housing-location';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +13,7 @@ template: `
       </form>
     </section>
     <section class="results">
-      <app-housing-location/>
+      <app-housing-location [housingLocation]="housingLocation" />
     </section>
   `,
   styleUrl: './home.css',
