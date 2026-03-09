@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { HousingLocationInfo } from '../housing-location';
 import { Housing } from '../housing';
 import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-details',
@@ -54,9 +55,14 @@ export class Details {
     email: new FormControl(''),
   });
 
+  private readonly changeDetectorRef = inject(ChangeDetectorRef);
+
   constructor() {
     const housingLocationId = Number(this.route.snapshot.params['id']);
-    this.housingLocation = this.housingService.getHousingLocationById(housingLocationId);
+    this.housingService.getHousingLocationById(housingLocationId).then((housingLocation) => {
+      this.housingLocation = housingLocation;
+      this.changeDetectorRef.markForCheck();
+    });
   }
 
   submitApplication() {
